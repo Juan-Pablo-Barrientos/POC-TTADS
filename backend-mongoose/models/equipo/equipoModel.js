@@ -47,4 +47,4 @@ const equipoSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('equipo', equipoSchema);
+module.exports = mongoose.model('equipos', equipoSchema);

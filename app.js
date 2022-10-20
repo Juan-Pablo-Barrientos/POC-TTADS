@@ -9,7 +9,7 @@ const port = 3000;
 
 app.use(express.json());
 
-app.use('api/equipo', equipo);
+app.use('/api/equipo', equipo);
 
 app.listen(port, function(err){
     if (err) console.log(err);

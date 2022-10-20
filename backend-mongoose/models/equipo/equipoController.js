@@ -17,8 +17,6 @@ router.get('/', async(req, res) => {
         console.log(error)
     }
 });
-/*
-
 
 //create
 router.post('/', async(req, res) => {
@@ -92,7 +90,4 @@ router.delete('/:id', async(req, res) => {
     }
 });
 
-
-
-*/
 module.exports = router;
