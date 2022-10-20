@@ -1,13 +1,13 @@
-//require("./database/index");
 const express = require("express");
 const cors = require("cors");
-//const routes = require("./routes");
 const http = require("http");
-
 const app = express();
+const router = require("./src/sequelize/routes/index");
+require ("dotenv").config();
 
 app.use(express.json());
 app.use(cors());
+app.use(router);
 
 const server = http.createServer(app);
 
