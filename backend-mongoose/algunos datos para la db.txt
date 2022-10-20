@@ -1,0 +1,12 @@
+///a la db la llame armas_y_armaduras y le puse los siguientes datos
+
+
+
+
+{  "_id": {    "$oid": "634f92be510aee3f0a3aad49"  },  "damage": 24,  "nombre": "Espada de madera",  "fecha_obtencion": {    "$date": {      "$numberLong": "1666148400000"    }  }}
+
+
+{  "_id": {    "$oid": "634f93c3510aee3f0a3aad4b"  },  "damage": 52,  "nombre": "Espada de madera bendecida",  "fe": 15,  "inteligencia": 10,  "resistencia": 30,  "fecha_obtencion": {    "$date": {      "$numberLong": "1666234800000"    }  }}
+
+
+{  "_id": {    "$oid": "634f97d5510aee3f0a3aad4c"  },  "nombre": "Escudo maldito",  "maldicion": "0.5% de probabilidad de maldecir al enemigo y provocarle la muerte",  "ceguera": "10% de probabilidad de cegar al enemigo ",  "resistencia": 100,  "quemadura": "30% de probabilidad de provocar quemaduras al enemigo",  "anti_veneno": "inmune al veneno",  "fe_maldita": 50,  "fecha_obtencion": {    "$date": {      "$numberLong": "1666321200000"    }  }}
