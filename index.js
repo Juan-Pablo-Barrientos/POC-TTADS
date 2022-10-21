@@ -4,6 +4,7 @@ const http = require("http");
 const app = express();
 const router = require("./src/sequelize/routes/index");
 require ("dotenv").config();
+const Associations = require('../POC-TTADS/src/sequelize/models/relations')();
 
 app.use(express.json());
 app.use(cors());
