@@ -18,6 +18,7 @@ router.get('/', async(req, res) => {
     }
 });
 
+/*
 //create
 router.post('/', async(req, res) => {
     try {
@@ -34,7 +35,52 @@ router.post('/', async(req, res) => {
         Response.error(res);
     }
 });
-
+*/
+let equipments = [
+    {
+     "name":"alta espada",
+     "category":"espada",
+     "type":"daño",
+     "value":7,
+     "destreza": 3,
+     "fuerza": 4,
+     "inteligencia": 25
+     },
+    {
+     "name":"alto escudo",
+     "category":"escudo",
+     "type":"defensa",
+     "value":5,
+     "fuerza": 10,
+     "inteligencia": 5,
+     "vitalidad":15,
+    },
+    {
+     "name":"escudo roto",
+     "category": "escudo",
+     "type":"defensa",
+     "value":2,
+     "vitalidad":5
+     },
+    {
+     "name": "casco de cuero",
+     "category":"casco",
+     "type":"defensa",
+     "value": 10,
+     "vitalidad":5,
+     "suerte":4,
+     "maldicion": "50% al golpear",
+     "vida":25,
+     "destreza":2,
+     "inteligencia":-10
+     },
+    {
+     "name": "coraza de acero",
+     "category":"coraza",
+     "type":"defensa",
+     "value": 10
+     }
+ ];
 //getById
 router.get('/:id', async(req, res) => {
     try {
@@ -55,7 +101,7 @@ router.get('/:id', async(req, res) => {
 router.get('/equipo_nombre/:nombre', async(req, res) => {
     try {
         const { nombre } = req.params;
-        let equipos = await equipoModel.find({nombre: nombre});
+        let equipos = await equipoModel.find({name: nombre});
 
         if(!equipos){
             Response.error(res, new createError.NotFound());
@@ -67,6 +113,20 @@ router.get('/equipo_nombre/:nombre', async(req, res) => {
         Response.error(res)
     }
 });
+
+router.post('/', async(req, res) => {
+    try {
+        for(let i = 0; i < 200; i++) {
+            await equipoModel.insertMany(equipments)
+          }
+        Response.success(res,201,'equipo agregado correctamente');
+
+    } catch (error) {
+        Response.error(res);
+    }
+});
+
+/*
 
 //update
 router.put('/:id', async(req, res) => {
@@ -90,4 +150,5 @@ router.delete('/:id', async(req, res) => {
     }
 });
 
+*/
 module.exports = router;

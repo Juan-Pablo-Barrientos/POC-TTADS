@@ -1,23 +1,27 @@
 const mongoose = require('mongoose');
 
 const equipoSchema = mongoose.Schema({
-    nombre: {
+    name: {
         type: String,
         require: true
     },
-    fecha_obtencion: {
-        type: Date,
+    category: {
+        type: String,
         require: true
     },
-    damage:{
+    type:{
+        type: String,
+        require: true
+    },
+    value: {
+        type: Number,
+        require: true
+    },
+    destreza: {
         type: Number,
         require: false
     },
-    fe: {
-        type: Number,
-        require: false
-    },
-    fe_maldita: {
+    fuerza: {
         type: Number,
         require: false
     },
@@ -25,7 +29,11 @@ const equipoSchema = mongoose.Schema({
         type: Number,
         require: false
     },
-    resistencia: {
+    vitalidad: {
+        type: Number,
+        require: false
+    },
+    suerte: {
         type: Number,
         require: false
     },
@@ -33,16 +41,8 @@ const equipoSchema = mongoose.Schema({
         type: String,
         require: false
     },
-    ceguera: {
-        type: String,
-        require: false
-    },
-    quemadura: {
-        type: String,
-        require: false
-    },
-    anti_veneno: {
-        type: String,
+    vida: {
+        type: Number,
         require: false
     }
 })
