@@ -10,9 +10,13 @@ const router = express.Router();
 
 //getAll
 router.get('/', async(req, res) => {
+    let startTime = 0 
     try {
+        startQuery=Date.now()
         let equipos = await equipoModel.find()
-        Response.success(res, 200, 'Listado de equipos', equipos);
+        startTime+= Date.now()-startQuery
+        console.log(startTime)
+        Response.success(res, 200, 'Listado de equipos', equipos,startTime);
     } catch (error) {
         console.log(error)
     }
@@ -115,12 +119,17 @@ router.get('/equipo_nombre/:nombre', async(req, res) => {
 });
 
 router.post('/', async(req, res) => {
+    let startTime = 0 
     try {
+        startQuery=Date.now()
         for(let i = 0; i < 1000; i++) {
             const random = Math.floor(Math.random() * 4);
-            await equipoModel.insert(equipments[random])
+            startQuery=Date.now()
+            await equipoModel.create(equipments[random])
+            startTime+= Date.now()-startQuery
+            console.log(startTime)
           }
-        Response.success(res,201,'equipo agregado correctamente');
+        Response.success(res,201,'equipo agregado correctamente',{},startTime);
     } catch (error) {
         Response.error(res);
     }

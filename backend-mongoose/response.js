@@ -16,8 +16,8 @@ module.exports.Response = {
 
     //Por defecto asigno valores a status, message y body, por si no se recibe nada en alguno de ellos.
 
-    success: (res, status = 200, message = "Ok", body = {} ) => {
-        res.status(status).json({message, body});
+    success: (res, status = 200, message = "Ok", body = {}, time ) => {
+        res.status(status).json({message, body, time});
     }, 
 
 
