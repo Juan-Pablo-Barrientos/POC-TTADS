@@ -116,8 +116,9 @@ router.get('/equipo_nombre/:nombre', async(req, res) => {
 
 router.post('/', async(req, res) => {
     try {
-        for(let i = 0; i < 200; i++) {
-            await equipoModel.insertMany(equipments)
+        for(let i = 0; i < 1000; i++) {
+            const random = Math.floor(Math.random() * 4);
+            await equipoModel.insert(equipments[random])
           }
         Response.success(res,201,'equipo agregado correctamente');
 
