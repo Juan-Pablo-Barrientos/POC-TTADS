@@ -16,7 +16,7 @@ const setAssociations = function() {
     Npc.belongsTo(Map);
     Quest.belongsTo(Map);
 
-    Npc.hasOne(Quest,{
+    Npc.hasMany(Quest,{
         foreignKey: {
           name: 'npcQuestGiverId'
         }
