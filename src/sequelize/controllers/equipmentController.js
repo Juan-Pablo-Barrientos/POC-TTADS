@@ -52,7 +52,7 @@ const addEquipment = async (req,res) => {
       const random = Math.floor(Math.random() * 4);
       const response = await models.Equipment.create(equipment[random]);
     }
-      return res.status(201).json({msg:"equipo agregado correctamente", error: false });
+      return res.status(200).json({ error: false });
     } catch (error) {
       return res.status(500).json({ msg: error, error: true });
     }
