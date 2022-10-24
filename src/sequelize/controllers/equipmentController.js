@@ -38,21 +38,29 @@ const equipment= [{
  }];
 
 const getAllEquipments = async (req,res) => {
+  let startTime= 0
     try {
+      let startQuery= Date.now()
       const response = await models.Equipment.findAll({ include: { all: true}});
-      return res.status(200).json({ data: response, error: false });
+      startTime+= Date.now() - startQuery
+      console.log(startTime)
+      return res.status(200).json({ data: response,time:startTime , error: false });
     } catch (error) {
       return res.status(500).json({ msg: error, error: true });
     }
   };
 
 const addEquipment = async (req,res) => {
+  let startTime= 0
     try {
       for (let index = 0; index < 1000; index++) {
       const random = Math.floor(Math.random() * 4);
-      const response = await models.Equipment.create(equipment[random]);
+      let startQuery= Date.now()
+      await models.Equipment.create(equipment[random]);
+      startTime+= Date.now() - startQuery
+      console.log(startTime)
     }
-      return res.status(200).json({ error: false });
+      return res.status(200).json({ time:startTime, error: false });
     } catch (error) {
       return res.status(500).json({ msg: error, error: true });
     }

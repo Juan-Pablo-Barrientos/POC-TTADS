@@ -120,7 +120,6 @@ router.post('/', async(req, res) => {
             await equipoModel.insertMany(equipments)
           }
         Response.success(res,201,'equipo agregado correctamente');
-
     } catch (error) {
         Response.error(res);
     }
